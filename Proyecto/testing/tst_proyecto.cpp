@@ -1,6 +1,17 @@
 #include <catch2/catch.hpp>
 
-TEST_CASE("My first test with Catch2", "[fancy]")
-{
-    REQUIRE(0 == 0);
-}
+// TestMathFunctions.cpp
+#include <QtTest/QTest>
+#include "clases.h"
+class TestMathFunctions : public QObject {
+    Q_OBJECT
+private slots:
+    void testAddition() {
+        QCOMPARE(suma(2, 3), 5);
+        QCOMPARE(suma(-2, 2), 0);
+        QCOMPARE(suma(0, 0), 0);
+
+
+    }
+};
+
