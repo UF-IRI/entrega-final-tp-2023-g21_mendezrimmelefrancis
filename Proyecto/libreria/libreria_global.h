@@ -5,9 +5,9 @@
 #include <cctype>
 #include <ctime>
 
-#define fileClases "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\TP\\G21-MendezRimmele\\Proyecto\\iriClasesGYM.csv"
-#define fileClientes "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\TP\\G21-MendezRimmele\\Proyecto\\iriClientesGYM.csv"
-#define fileReservas "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\TP\\G21-MendezRimmele\\Proyecto\\iriReservasGYM.csv"
+#define fileClases "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\entrega-final-tp-2023-g21_mendezrimmelefrancis\\Proyecto\\iriClasesGYM.csv"
+#define fileClientes "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\entrega-final-tp-2023-g21_mendezrimmelefrancis\\Proyecto\\iriClientesGYM.csv"
+#define fileReservas "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\entrega-final-tp-2023-g21_mendezrimmelefrancis\\Proyecto\\iriReservasGYM.csv"
 
 using namespace std;
 

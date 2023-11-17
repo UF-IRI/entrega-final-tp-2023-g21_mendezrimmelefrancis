@@ -1,4 +1,4 @@
-idClase,clase,horario
+idClase,nombre,horario
 1,Spinning,8
 2,Spinning,10
 3,Spinning,12
@@ -59,6 +59,3 @@ idClase,clase,horario
 58,Musculacion,19
 59,Musculacion,19.30
 60,Musculacion,20
-
-1,facundo,22.22
-1,facundo,22.22

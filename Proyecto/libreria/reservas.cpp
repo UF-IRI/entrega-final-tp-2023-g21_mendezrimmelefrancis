@@ -435,7 +435,7 @@ mañana = localtime(&hoy);
 mañana->tm_mon=1;
                  mañana->tm_year++;
 }
-         mañana->tm_mday++;
+        // mañana->tm_mday++;
         mañana->tm_wday++;
 int j=1;
 for(int i=0;i<k;i++){
@@ -515,13 +515,13 @@ if(j!=0){
                         }cout<<" \t|";
 
                         guardadoFecha[j].mes=to_string(mañana->tm_mon);
-                                               guardadoFecha[j].anio=to_string(mañana->tm_year+1900);
-                            guardadoID[j]=ids[i];
+                        guardadoFecha[j].anio=to_string(mañana->tm_year+1900);
+                        guardadoID[j]=ids[i];
                         guardadoDia[j]=to_string(d);
                         guardadoFecha[j].dia=to_string(mañana->tm_mday);
                                                mañana->tm_wday++;
                                                mañana->tm_mday++;
-                                               if(mañana->tm_wday>=6){
+                                               if(mañana->tm_wday>=6){//salteo el domingo
                                                mañana->tm_wday=1;
                               mañana->tm_mday++;
                     }

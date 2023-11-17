@@ -24,21 +24,21 @@ int main(){
 
         while(opcion != 1 && opcion != 2 && opcion != 3 && opcion != 9){
             cout << "------Gimnacio Musculito------" << endl;
-            cout << "1)Musculacion." << endl;
-            cout << "2)Clases." << endl;
-            cout << "3)Clientes." << endl;
+            //cout << "1)Musculacion." << endl;
+            cout << "1)Clases." << endl;
+            cout << "2)Clientes." << endl;
             cout << "9)Cerrar" << endl;
             cout << "Eleccion:";
             cin >> opcion;
             system("cls");
-            if(opcion != 1 && opcion != 2 && opcion != 3 && opcion != 9){
+            if(opcion != 1 && opcion != 2 /*&& opcion != 3*/ && opcion != 9){
                 cout<<"-> Intente nuevamente"<<endl;
             }
         }
 
 
         switch (opcion){
-        case Musculacion:
+        /*case Musculacion:
             do{
                 //opcion = 0;
                 while(subopcionmusculacion != 1 && subopcionmusculacion != 2 && subopcionmusculacion != 9){
@@ -57,24 +57,11 @@ int main(){
                 case Validar:
                     subopcionmusculacion=0;
                     cout << "------Validacion------" << endl;
-                    //ok = validar_musculacion(salicitud.dni);
-                    //true->ya existe el plan
-                    /*if(ok==true){
-                    cout << "Hay un plan existente." << endl;
-                }else{
-                    cout << "Ningun plan existente." << endl;
-                }*/
-                    //system("cls");
+
                     break;
                 case Agregar:
                     subopcionmusculacion=0;
-                   //ok=menu_musculacion(solicitud.nombre,solicitud.apellido,solicitud.dni,solicitud.telefono,solicitud.plan) ->dentro hay dos funciones: 1)Booleano que comprueba mediante el dni si tiene un plan existente(validar_musculacion(dni)). 2)En el caso de que no exista plan, agrega la persona al archivo de musculacion
-                    //true->ya existe el plan
-                    /*if(ok==true){
-                    cout << "Error, ya hay un plan existente." << endl;
-                }else{
-                    cout << "Se a guardado con exito el nuevo plan." << endl;
-                }*/
+
                     system("cls");
                     break;
                 default:
@@ -82,8 +69,9 @@ int main(){
                 }
             }while(subopcionmusculacion != 9);
 
-            break;
-        case Clases:
+            break;*/
+        //case Clases:
+        case 1:
             //obtenerFechaActual(fechactual);
             do{
                 subopcionclases=0;
@@ -162,7 +150,8 @@ int main(){
             }while(subopcionclases != 9);
 
             break;
-        case Clientes:
+        //case Clientes:
+        case 2:
             do{
                 subopcionclientes=0;
                 while ((subopcionclientes < 1 || subopcionclientes > 2) && subopcionclientes != 9){
