@@ -28,7 +28,7 @@ TEST_CASE("Test Inscripcion incorrecto")
 
 TEST_CASE("Test ExisteInscripcionCliente true")
 {
-    int tamclientes=TamanioArchClientes();
+
     time_t hoy=time(0);
     asistencias inscripcion={1,1,{{1,hoy}}};
     int tamanio=0;

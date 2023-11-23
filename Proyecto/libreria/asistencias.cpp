@@ -301,7 +301,7 @@ asistencias NuevaInscripcionRandom(){
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<int> randcliente(1, TamanioArchClientes());
-    uniform_int_distribution<int> randclase(1, TamanioArchClases());
+    uniform_int_distribution<int> randclase(1, 33);//todos los ids de las clases que no sean musculacion
 
     int idcliente = randcliente(gen);
     int idclase = randclase(gen);

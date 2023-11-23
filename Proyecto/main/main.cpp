@@ -47,14 +47,15 @@ int main(){
         case Musculacion:
             do{
                 //opcion = 0;
-                while(subopcionmusculacion != 1 && subopcionmusculacion != 2 && subopcionmusculacion != 9){
+                while(subopcionmusculacion != 1 && subopcionmusculacion != 2 && subopcionmusculacion != 3 && subopcionmusculacion != 9){
                     cout << "------Musculacion------" << endl;
-                    cout << "1)Clientes saldo positivo." << endl;
-                    cout << "2)Clientes saldo negativo." << endl;
+                    cout << "1)Inscrivirse (es random)" << endl;
+                    cout << "2)Clientes saldo positivo." << endl;
+                    cout << "3)Clientes saldo negativo." << endl;
                     cout << "9)Salir de musculacion." << endl;
                     cin >> subopcionmusculacion;
                     system("cls");
-                    if(subopcionmusculacion != 1 && subopcionmusculacion != 2 && subopcionmusculacion != 9){
+                    if(subopcionmusculacion != 1 && subopcionmusculacion != 2 && subopcionmusculacion != 3 && subopcionmusculacion != 9){
                         cout<<"-> Intente nuevamente"<<endl;
                     }
                 }
@@ -62,15 +63,21 @@ int main(){
                 switch(subopcionmusculacion){
                 case 1:
                     subopcionmusculacion=0;
+                    inscripto=Inscripciones(NuevaMusculacionRandom(),tamltasistencias);
+                    tamltasistencias=TamanioArchAsistencias();
+                    break;
+                case 2:
+                    subopcionmusculacion=0;
                     cout << "------Saldo Positivo------" << endl;
                     ImpPositivosMusculacion(ltclientes,tamltclientes);
                     break;
-                case 2:
+                case 3:
                     subopcionmusculacion=0;
                     cout << "------Saldo Negativo------" << endl;
                     ImpNegativosMusculacion(ltclientes,tamltclientes);
                     system("cls");
                     break;
+
                 default:
                     break;
                 }
@@ -79,7 +86,7 @@ int main(){
             break;
         //case Clases:
         case 2:
-            //obtenerFechaActual(fechactual);
+
             do{
                 subopcionclases=0;
                 while ((subopcionclases < 1 || subopcionclases > 2) && subopcionclases != 9){
@@ -101,9 +108,9 @@ int main(){
                     Impasistencias(tamltasistencias);
                     break;
                 case 2:
-                    //nueva_inscripcion=NuevaInscripcionRandom();
-                    inscripto=Inscripciones(NuevaInscripcionRandom(),tamltasistencias);
-                    tamltasistencias=TamanioArchAsistencias();
+
+                        inscripto=Inscripciones(NuevaInscripcionRandom(),tamltasistencias);
+                        tamltasistencias=TamanioArchAsistencias();
 
                     system("pause");
                     break;
