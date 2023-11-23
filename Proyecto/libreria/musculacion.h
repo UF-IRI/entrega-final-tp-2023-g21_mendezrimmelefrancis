@@ -1,3 +1,5 @@
-#include <libreria_global.h>
+#include <asistencias.h>
 
 
+void ImpPositivosMusculacion(clientes* ltclientes, int tam);
+void ImpNegativosMusculacion(clientes* ltclientes, int tam);

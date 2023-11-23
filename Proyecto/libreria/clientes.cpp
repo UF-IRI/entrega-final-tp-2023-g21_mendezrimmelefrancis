@@ -9,7 +9,9 @@ void ltClientes_agregar(clientes*& ltclientes, clientes nuevo, int* tamactual) {
         aux[i] = ltclientes[i];
         i++;
     }
-    aux[i] = nuevo;
+    if(nuevo.idCliente!=""){
+        aux[i] = nuevo;
+    }
 
     delete[] ltclientes;
     ltclientes = aux;
@@ -37,7 +39,8 @@ clientes* ArchClientes_leer() {
     while (getline(arch,basura)) {
         //arch >> aux.dni >> coma >> aux.clase >> coma >> aux.apellido >> coma >> aux.sexo >> coma >> aux.natalicio.dia >> coma >> aux.natalicio.mes >> coma >> aux.natalicio.anio >> coma >> auxestado >> coma >> aux.id_os.obra_social;
         stringstream stream(basura);
-        getline(stream,aux.idCliente,coma);
+        getline(stream,parche,coma);
+        aux.idCliente=parche;
         //aux.idCliente=stoi(parche); // ->no se porque pero el programa se traba y me tira error cuando uso datos numerico
         getline(stream,aux.nombre,coma);
         getline(stream,aux.apellido,coma);
@@ -53,6 +56,7 @@ clientes* ArchClientes_leer() {
         getline(stream,aux.estado,coma);
         //aux.estado=stoi(parche);
         ltClientes_agregar(ltclientes, aux, &tamact);
+
     }
 
     arch.close();
@@ -123,16 +127,17 @@ int TamanioArchClientes() {
     arch.close();
     return i;
 }
-void ImpClientes() {
+void ImpClientes(clientes* p,int tam) {
     //imprimo clases
     string coma = " , ";
-    clientes* p = ArchClientes_leer();
-    int tam = TamanioArchClientes();
+
     int i = 0;
     cout << "idCliente,nombre,apellido,email,telefono,fechaNac,estado" << endl;
     while (i < tam) {
-        cout << p[i].idCliente << coma << p[i].nombre << coma << p[i].apellido << coma << p[i].email << coma << p[i].telefono << coma << p[i].fechaNac.dia + '-' + p[i].fechaNac.mes + '-' + p[i].fechaNac.anio << coma << p[i].estado << endl;
-        i++;
+        if(p[i].idCliente!=""){
+            cout << p[i].idCliente << coma << p[i].nombre << coma << p[i].apellido << coma << p[i].email << coma << p[i].telefono << coma << p[i].fechaNac.dia + '-' + p[i].fechaNac.mes + '-' + p[i].fechaNac.anio << coma << p[i].estado << endl;
+        }
+       i++;
     }
     delete[]p;
     system("pause");
@@ -155,7 +160,7 @@ string buscarIdCliente(clientes* ltclientes,int tamclientes){
 
     string apellidos[largo];
     string ids[largo];
-    reservas nueva_reserva;
+    //asistencias nueva_asistencia;
     cout<<"Elija el cliente:"<<endl;
     int j=0;
 

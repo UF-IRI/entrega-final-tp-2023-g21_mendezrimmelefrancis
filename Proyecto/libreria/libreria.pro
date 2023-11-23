@@ -8,19 +8,19 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    asistencias.cpp \
     clases.cpp \
     clientes.cpp \
     libreria.cpp \
-    musculacion.cpp \
-    reservas.cpp
+    musculacion.cpp
 
 HEADERS += \
+    asistencias.h \
     clases.h \
     clientes.h \
     libreria_global.h \
     libreria.h \
-    musculacion.h \
-    reservas.h
+    musculacion.h
 
 # Default rules for deployment.
 unix {

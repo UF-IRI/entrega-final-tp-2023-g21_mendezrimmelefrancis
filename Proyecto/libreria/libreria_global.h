@@ -4,10 +4,11 @@
 #include <sstream>
 #include <cctype>
 #include <ctime>
+#include <random>
 
-#define fileClases "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\entrega-final-tp-2023-g21_mendezrimmelefrancis\\Proyecto\\iriClasesGYM.csv"
-#define fileClientes "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\entrega-final-tp-2023-g21_mendezrimmelefrancis\\Proyecto\\iriClientesGYM.csv"
-#define fileReservas "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\entrega-final-tp-2023-g21_mendezrimmelefrancis\\Proyecto\\iriReservasGYM.csv"
+#define fileClases "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\ReEntrega\\Proyecto\\iriClasesGYM.csv"
+#define fileClientes "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\ReEntrega\\Proyecto\\iriClientesGYM.csv"
+#define fileAsistencias "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\ReEntrega\\Proyecto\\asistencias_1697673600000.dat"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ struct Fecha{
     //int dia;
     //int mes;
     //int anio;
+
     string dia;
     string mes;
     string anio;
@@ -46,10 +48,20 @@ struct Clases{
     string horario;
 };typedef struct Clases clases;
 
-struct Reservas{
-    clientes cliente;
-    clases clase;
-    fecha f_reserva;
-};typedef struct Reservas reservas;
+struct Inscripcion{
+    int idclase;
+    //string idclase;
+    time_t fechainscripcion;
+    //string fechainscripcion;
+};typedef struct Inscripcion inscripcion;
+
+struct Asistencias{
+    int idcliente;
+    //string idcliente;
+    int cantinscriptos;
+    //string cantinscriptos;
+    inscripcion inscripcion[11];//maaximo de 11 clases diarias por horarios de apertura
+};typedef struct Asistencias asistencias;
+
 
 
