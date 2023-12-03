@@ -64,7 +64,7 @@ clientes* ArchClientes_leer() {
 
     return ltclientes;
 }
-void ArchClientes_agregar(clientes nuevo) {
+void ArchClientes_agregar(clientes nuevo, int tam) {
     string coma = ",";
     string barra = "/";
     fstream arch;
@@ -84,12 +84,19 @@ void ArchClientes_agregar(clientes nuevo) {
         }
     }
     arch.close();
+
+    bool existe = ExisteCliente(nuevo,tam);
+    if(existe==true){
+        cout<<"El cliente ya existe."<<endl;
+        system("pause");
+        return;
+    }
     arch.open(fileClientes,  ios::app);
     if (arch.is_open()) {
         arch <<endl<< nuevo.idCliente << coma << nuevo.nombre << coma << nuevo.apellido << coma << nuevo.email << coma << nuevo.telefono << coma << nuevo.fechaNac.dia + '-' + nuevo.fechaNac.mes + '-' + nuevo.fechaNac.anio << coma << nuevo.estado;
     }
     arch.close();
-
+    cout<<"Guardado correctamente."<<endl;
 
 
     return;
@@ -128,7 +135,7 @@ int TamanioArchClientes() {
     return i;
 }
 void ImpClientes(clientes* p,int tam) {
-    //imprimo clases
+    //imprimo clientes
     string coma = " , ";
 
     int i = 0;
@@ -139,7 +146,7 @@ void ImpClientes(clientes* p,int tam) {
         }
        i++;
     }
-    delete[]p;
+
     system("pause");
     system("cls");
 }
@@ -204,4 +211,47 @@ string buscarIdCliente(clientes* ltclientes,int tamclientes){
         return " ";
     }
     system("cls");
+}
+
+void ImpPositivos(clientes* ltclientes, int tam){
+    clientes* clientespos=new clientes[tam];//maximo
+    int newtam=0;
+    //int pos;
+    for(int i=0;i<tam;i++ ){
+        //estado=ltclientes[i].estado;
+        //pos=stoi(estado); ->NO ME QUIERE FUNCIONAR STOI POR SOBRE CARGA CREO Y NO SE COMO CORREGIRLO
+        if(ltclientes[i].estado[0]!='-'){
+            clientespos[newtam]=ltclientes[i];
+            newtam++;
+        }
+    }
+    ImpClientes(clientespos,newtam);
+    delete[] clientespos;
+}
+
+void ImpNegativos(clientes* ltclientes, int tam){
+    clientes* clientesneg=new clientes[tam];//maximo
+    int newtam=0;
+    //int pos=0;
+    for(int i=0;i<tam;i++ ){
+        //pos=stoi(ltclientes[i].estado);
+        if(ltclientes[i].estado[0]=='-'){
+            clientesneg[newtam]=ltclientes[i];
+            newtam++;
+        }
+    }
+    ImpClientes(clientesneg,newtam);
+    delete[] clientesneg;
+}
+
+bool ExisteCliente(clientes nuevo, int tam){
+    clientes* ltclientes=ArchClientes_leer();
+    for(int i=0;i<tam;i++){
+        if(ltclientes[i].email==nuevo.email){ //comprueba que no exista por el email
+            delete[] ltclientes;
+            return true;
+        }
+    }
+    delete[] ltclientes;
+    return false;
 }

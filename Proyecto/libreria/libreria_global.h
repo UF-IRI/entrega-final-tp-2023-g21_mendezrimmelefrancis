@@ -6,10 +6,9 @@
 #include <ctime>
 #include <random>
 
-#define fileClases "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\ReEntrega\\Proyecto\\iriClasesGYM.csv"
-#define fileClientes "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\ReEntrega\\Proyecto\\iriClientesGYM.csv"
-#define fileAsistencias "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\ReEntrega\\Proyecto\\asistencias_1697673600000.dat"
-
+#define fileClases "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\entrega-final-tp-2023-g21_mendezrimmelefrancis\\Proyecto\\iriClasesGYM.csv"
+#define fileClientes "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\entrega-final-tp-2023-g21_mendezrimmelefrancis\\Proyecto\\iriClientesGYM.csv"
+#define fileAsistencias "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\entrega-final-tp-2023-g21_mendezrimmelefrancis\\Proyecto\\asistencias_1697673600000.dat"
 using namespace std;
 
 enum eActividad { Musculacion = 1, Clases, Clientes };

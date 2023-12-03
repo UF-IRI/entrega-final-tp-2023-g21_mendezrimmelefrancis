@@ -146,11 +146,12 @@ void Impasistencias(int tam) {
     int i = 0;
     cout << "idCliente,cantInscriptos,{Inscripcion(idCurso, fechaInscripcion)}" << endl;
     while (i < tam) {
-
         cout << p[i].idcliente << coma << p[i].cantinscriptos << coma <<'{';
         int cant=p[i].cantinscriptos;
         for(int k=0;k<cant;k++){
-            cout<<'(';cout<<p[i].inscripcion[k].idclase<<coma<<p[i].inscripcion[k].fechainscripcion;cout<<')'<<coma;
+
+                    cout<<'(';cout<<p[i].inscripcion[k].idclase<<coma<<p[i].inscripcion[k].fechainscripcion;cout<<')'<<coma;
+
         }
         cout<<'}'<<endl;
         i++;
@@ -168,19 +169,20 @@ int tamclientes=TamanioArchClientes();
 string clase;
 int sala=0,contar=0,estado=0;
 
-
 //ESTO SI DEBERIA IR PARA QUE LOS QUE DEBEN NO PUEDAN INSCRIBIRSE, NO ME ANDA STOI Y NO PUEDO COMPARAR ENTEROS
-/*for(int i=0;i<tamclientes;i++){
-        estado=stoi(ltclientes[i].estado);
-        if(to_string(nuevo.idcliente)==ltclientes[i].idCliente && estado<0){
-            cout<<"No puede reservar por estado en negativo."<<endl
-            delete[] ltclientes;
-            delete[] ltclases;
-            delete[] ltasistencias;
-            system("pause");
-            return false;
+for(int i=0;i<tamclientes;i++){
+        if(to_string(nuevo.idcliente)==ltclientes[i].idCliente){
+            estado=stoi(ltclientes[i].estado);
+            if(estado<0){
+                    cout<<"No puede reservar por estado en negativo."<<endl;
+                    delete[] ltclientes;
+                    delete[] ltclases;
+                    delete[] ltasistencias;
+                    system("pause");
+                    return false;
+            }
         }
-}*/
+}
 
 for(int i=0;i<tamltclases;i++){ //recorro ltclases y busco id para saber cual el el cupo max de la sala de la calse que quiere asistir
       if(ltclases[i].idClase==to_string(nuevo.inscripcion[0].idclase)){//solo se puede agregar de a una clase

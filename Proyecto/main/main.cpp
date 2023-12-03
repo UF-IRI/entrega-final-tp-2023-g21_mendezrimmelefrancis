@@ -5,20 +5,20 @@ int main(){
     int subopcionclases;
     int subopcionmusculacion;
     int subopcionclientes;
-    int subopcioncupo;
+   // int subopcioncupo;
 
-    int tamltclases = TamanioArchClases();
-    int tamltclientes = TamanioArchClientes();
+   // int tamltclases = TamanioArchClases();
+    int tamltclientes;
     int tamltasistencias = TamanioArchAsistencias();
 
     bool inscripto;
 
-    string idnuevocliente = to_string(tamltclientes+1);
+    string idnuevocliente = to_string(TamanioArchClientes()+1);
     //clases* ltclases = new clases[tamltclases];
-    clientes* ltclientes=ArchClientes_leer();
+    clientes* ltclientes;//=ArchClientes_leer();
 
     //declaro las variables a agrega nuevas
-    clientes nuevo_cliente ={idnuevocliente,"facundo","rimmele","facurimmele@gmail.com","2995808204","6","9","2000","0"};
+    clientes nuevo_cliente ={idnuevocliente,"facundo","rimmele","frimmele@gmail.com","2995808204","6","9","2000","0"};
 
 
     do{
@@ -29,7 +29,7 @@ int main(){
 
 
         while(opcion != 1 && opcion != 2 && opcion != 3 && opcion != 9){
-            cout << "------Gimnacio Musculito------" << endl;
+            cout << "------Gimnasio Musculito------" << endl;
             cout << "1)Musculacion." << endl;
             cout << "2)Clases." << endl;
             cout << "3)Clientes." << endl;
@@ -47,15 +47,13 @@ int main(){
         case Musculacion:
             do{
                 //opcion = 0;
-                while(subopcionmusculacion != 1 && subopcionmusculacion != 2 && subopcionmusculacion != 3 && subopcionmusculacion != 9){
+                while(subopcionmusculacion != 1 && subopcionmusculacion != 9){
                     cout << "------Musculacion------" << endl;
-                    cout << "1)Inscrivirse (es random)" << endl;
-                    cout << "2)Clientes saldo positivo." << endl;
-                    cout << "3)Clientes saldo negativo." << endl;
+                    cout << "1)Inscrivirse a musculacion (es random)." << endl;
                     cout << "9)Salir de musculacion." << endl;
                     cin >> subopcionmusculacion;
                     system("cls");
-                    if(subopcionmusculacion != 1 && subopcionmusculacion != 2 && subopcionmusculacion != 3 && subopcionmusculacion != 9){
+                    if(subopcionmusculacion != 1 && subopcionmusculacion != 9){
                         cout<<"-> Intente nuevamente"<<endl;
                     }
                 }
@@ -66,18 +64,6 @@ int main(){
                     inscripto=Inscripciones(NuevaMusculacionRandom(),tamltasistencias);
                     tamltasistencias=TamanioArchAsistencias();
                     break;
-                case 2:
-                    subopcionmusculacion=0;
-                    cout << "------Saldo Positivo------" << endl;
-                    ImpPositivosMusculacion(ltclientes,tamltclientes);
-                    break;
-                case 3:
-                    subopcionmusculacion=0;
-                    cout << "------Saldo Negativo------" << endl;
-                    ImpNegativosMusculacion(ltclientes,tamltclientes);
-                    system("cls");
-                    break;
-
                 default:
                     break;
                 }
@@ -91,8 +77,8 @@ int main(){
                 subopcionclases=0;
                 while ((subopcionclases < 1 || subopcionclases > 2) && subopcionclases != 9){
                     cout << "--------Clases--------" << endl;
-                    cout << "1)Leer inscripciones." << endl;
-                    cout << "2)Inscrivirse (es random)."<<endl;
+                    cout << "1)Leer todas las inscripciones." << endl;
+                    cout << "2)Inscrivirse a una clase (es random)."<<endl;
                     cout << "9)Salir de clases." << endl;
                     cout << "Eleccion: ";
                     cin >> subopcionclases;
@@ -124,15 +110,18 @@ int main(){
         case 3:
             do{
                 subopcionclientes=0;
-                while ((subopcionclientes < 1 || subopcionclientes > 2) && subopcionclientes != 9){
+                while ((subopcionclientes < 1 || subopcionclientes > 4) && subopcionclientes != 9){
                     cout << "--------Clientes--------" << endl;
-                    cout << "1)Leer lista." << endl;
-                    cout << "2)Agregar nuevo cliente." << endl;
+                    cout << "1)Agregar nuevo cliente." << endl;
+                    cout << "-->Leer:" << endl;
+                    cout <<"\t2)Todos los clientes."<<endl;
+                    cout <<"\t3)Clientes positivos."<<endl;
+                    cout <<"\t4)Clientes negativos."<<endl;
                     cout << "9)Salir de clientes." << endl;
                     cout << "Eleccion: ";
                     cin >> subopcionclientes;
                     system("cls");
-                    if((subopcionclientes<1 || subopcionclientes>2) && subopcionclientes!=9){
+                    if((subopcionclientes<1 || subopcionclientes>4) && subopcionclientes!=9){
                         cout<<"-> Intente nuevamente"<<endl;
                     }
                 }
@@ -140,16 +129,36 @@ int main(){
 
 
                 switch(subopcionclientes){
-                case 1://leer lt
-                    ImpClientes(ltclientes,tamltclientes);
-                    break;
-                case 2:
+                case 1:
+                    subopcionclientes=0;
                     tamltclientes = TamanioArchClientes();
                     idnuevocliente = to_string(tamltclientes+1);
                     nuevo_cliente.idCliente=idnuevocliente;
-                    ArchClientes_agregar(nuevo_cliente);
-                    cout<<"Guardado correctamente";               
+                    ltclientes=ArchClientes_leer();
+                    ArchClientes_agregar(nuevo_cliente,tamltclientes);
                     system("pause");
+
+                    break;
+                case 2:
+                    subopcionclientes=0;
+                    ltclientes=ArchClientes_leer();
+                    tamltclientes = TamanioArchClientes();
+                    ImpClientes(ltclientes,tamltclientes);
+                    break;
+                case 3:
+                    subopcionclientes=0;
+                    cout << "------Saldo Positivo------" << endl;
+                    ltclientes=ArchClientes_leer();
+                    tamltclientes = TamanioArchClientes();
+                    ImpPositivos(ltclientes,tamltclientes);
+                    break;
+                case 4:
+                    subopcionclientes=0;
+                    cout << "------Saldo Negativo------" << endl;
+                    ltclientes=ArchClientes_leer();
+                    tamltclientes = TamanioArchClientes();
+                    ImpNegativos(ltclientes,tamltclientes);
+
                     break;
                 }
             }while(subopcionclientes != 9);
