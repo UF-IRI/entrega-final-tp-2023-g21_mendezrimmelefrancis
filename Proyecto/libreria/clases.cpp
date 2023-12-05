@@ -32,17 +32,13 @@ clases* ArchClases_leer() {
         return nullptr;
 
     string basura;
-    //arch >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura;
     getline(arch,basura);
     while (getline(arch,basura)) {
         string auxestado;
-        //arch >> aux.dni >> coma >> aux.clase >> coma >> aux.apellido >> coma >> aux.sexo >> coma >> aux.natalicio.dia >> coma >> aux.natalicio.mes >> coma >> aux.natalicio.anio >> coma >> auxestado >> coma >> aux.id_os.obra_social;
         stringstream stream(basura);
         getline(stream,aux.idClase,coma);
-        //aux.idClase=stoi(parche);  ->no se porque pero el programa se traba y me tira error cuando uso datos numerico
         getline(stream,aux.clase,coma);
         getline(stream,aux.horario,coma);
-        //aux.horario=stof(parche);
         ltClases_agregar(ltclases, aux, &tamact);
     }
 
@@ -102,7 +98,6 @@ int TamanioArchClases() {
         return 0;
 
     string basura,aux;
-    //arch >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura;
     getline(arch,basura);
     int i = 0;
     while (getline(arch,basura)) {
@@ -131,7 +126,7 @@ void ImpClases() {
 }
 
 void Minuscula(string &palabra){
-    for(int i=0;i<palabra.length();i++){
+    for(int i=0;i<(int)palabra.length();i++){
         palabra[i]=towlower(palabra[i]);
     }
 }

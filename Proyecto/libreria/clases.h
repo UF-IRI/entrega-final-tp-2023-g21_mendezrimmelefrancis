@@ -8,11 +8,5 @@ int TamanioArchClases();
 void ImpClases();
 
 void Minuscula(string &palabra);
-/*int lugarSpinning();//me dice las fechas disponibles, como?
-void leerArchClases(clases* ltclases);
-void escribirArchClases(clases nuevo, clases* ltclases, int tamclases);
-bool crearArchClases();
-int TamanioArchClases();*/
-
 
 

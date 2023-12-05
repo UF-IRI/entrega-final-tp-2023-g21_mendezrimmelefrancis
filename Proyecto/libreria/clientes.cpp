@@ -34,10 +34,8 @@ clientes* ArchClientes_leer() {
         return nullptr;
 
     string basura;
-    //arch >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura;
     getline(arch,basura);
     while (getline(arch,basura)) {
-        //arch >> aux.dni >> coma >> aux.clase >> coma >> aux.apellido >> coma >> aux.sexo >> coma >> aux.natalicio.dia >> coma >> aux.natalicio.mes >> coma >> aux.natalicio.anio >> coma >> auxestado >> coma >> aux.id_os.obra_social;
         stringstream stream(basura);
         getline(stream,parche,coma);
         aux.idCliente=parche;
@@ -122,7 +120,6 @@ int TamanioArchClientes() {
         return 0;
 
     string basura,aux;
-    //arch >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura >> coma >> basura;
     getline(arch,basura);
     int i = 0;
     while (getline(arch,basura)) {
@@ -167,7 +164,6 @@ string buscarIdCliente(clientes* ltclientes,int tamclientes){
 
     string apellidos[largo];
     string ids[largo];
-    //asistencias nueva_asistencia;
     cout<<"Elija el cliente:"<<endl;
     int j=0;
 
@@ -200,7 +196,6 @@ string buscarIdCliente(clientes* ltclientes,int tamclientes){
                 cout<<"Eleccion:";cin>>opcion;
             }
         }while(opcion<1 || opcion>j);
-        //cout<<"prueba:"<<guardadoID[opcion]<<endl;
         opcion--;
         return ids[opcion];
     }else{//si no encuntra ninguna clase con por lo menos 1 lugar
@@ -218,7 +213,6 @@ void ImpPositivos(clientes* ltclientes, int tam){
     int newtam=0;
     //int pos;
     for(int i=0;i<tam;i++ ){
-        //estado=ltclientes[i].estado;
         //pos=stoi(estado); ->NO ME QUIERE FUNCIONAR STOI POR SOBRE CARGA CREO Y NO SE COMO CORREGIRLO
         if(ltclientes[i].estado[0]!='-'){
             clientespos[newtam]=ltclientes[i];

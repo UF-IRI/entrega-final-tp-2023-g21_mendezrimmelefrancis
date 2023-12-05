@@ -30,7 +30,6 @@ asistencias* ArchAsistencias_leer(int tam) {
             if(aux.idcliente>0 && maxclientes>aux.idcliente){//compruebo que sea un cliente y no basura, no me esta saliendo borrar un solo elemento
                     archivoBinario.read((char*)&aux.cantinscriptos, sizeof(int));
 
-                    //int cant = stoi(aux.cantinscriptos);
                     int i=0;
                     while(i<aux.cantinscriptos && aux.cantinscriptos!=0){
 
@@ -52,7 +51,6 @@ asistencias* ArchAsistencias_leer(int tam) {
 }
 void ArchAsistencias_agregar(asistencias* ltasistencias, asistencias nuevo,int tam) {
 
-        //asistencias* ltasistencias = ArchAsistencias_leer(tam);
         int tamclientes=TamanioArchClientes();
         int parche=0;
         time_t parchet;
@@ -224,6 +222,7 @@ for(int i=0;i<tamltasistencias;i++){
       }
     }
 }
+//cout<<sala<<"-->"<<contar<<endl; //imprime la cantidad de lugares maximos y la  cantidad de ocupados que hay en la clase, lo uso para comprobar que funcione bien que no quede cupo
 if((sala-contar)<=0){//si no queda cupo
     cout<<"no queda cupo"<<endl;
     system("pause");
@@ -250,6 +249,7 @@ for(int i=0;i<tamltasistencias;i++){
 
                     }else{
                         cout<<"Ya esta inscripto en esta clase."<<endl;
+                            system("pause");
                             delete[] ltclientes;
                             delete[] ltclases;
                             delete[] ltasistencias;
@@ -292,13 +292,6 @@ asistencias NuevaInscripcionRandom(){
     asistencias random;
 
     time_t hoy=time(0);
-
-    /*int idcliente = (rand() % tamclientes)+1;
-    int idclase = (rand() % tamclases)+1;
-
-    random={idcliente,1,{{idclase,hoy}}};
-
-    return random;*/
 
     random_device rd;
     mt19937 gen(rd());

@@ -5,17 +5,14 @@ int main(){
     int subopcionclases;
     int subopcionmusculacion;
     int subopcionclientes;
-   // int subopcioncupo;
 
-   // int tamltclases = TamanioArchClases();
     int tamltclientes;
     int tamltasistencias = TamanioArchAsistencias();
 
     bool inscripto;
 
     string idnuevocliente = to_string(TamanioArchClientes()+1);
-    //clases* ltclases = new clases[tamltclases];
-    clientes* ltclientes;//=ArchClientes_leer();
+    clientes* ltclientes;
 
     //declaro las variables a agrega nuevas
     clientes nuevo_cliente ={idnuevocliente,"facundo","rimmele","frimmele@gmail.com","2995808204","6","9","2000","0"};
@@ -94,9 +91,11 @@ int main(){
                     Impasistencias(tamltasistencias);
                     break;
                 case 2:
-
+                    for(int i=0;i<100;i++){
                         inscripto=Inscripciones(NuevaInscripcionRandom(),tamltasistencias);
                         tamltasistencias=TamanioArchAsistencias();
+
+                    }
 
                     system("pause");
                     break;
