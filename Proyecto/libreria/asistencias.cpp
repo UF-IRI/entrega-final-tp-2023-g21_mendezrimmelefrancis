@@ -167,6 +167,10 @@ int tamclientes=TamanioArchClientes();
 string clase;
 int sala=0,contar=0,estado=0;
 
+if(nuevo.idcliente<1 || nuevo.idcliente>tamclientes){ //osea que un idcliente que no existe
+        return false;//no debe inscribir
+}
+
 //ESTO SI DEBERIA IR PARA QUE LOS QUE DEBEN NO PUEDAN INSCRIBIRSE, NO ME ANDA STOI Y NO PUEDO COMPARAR ENTEROS
 for(int i=0;i<tamclientes;i++){
         if(to_string(nuevo.idcliente)==ltclientes[i].idCliente){

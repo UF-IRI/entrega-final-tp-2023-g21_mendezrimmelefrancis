@@ -5,6 +5,7 @@
 #include <cctype>
 #include <ctime>
 #include <random>
+#include <libreria.h>
 
 #define fileClases "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\entrega-final-tp-2023-g21_mendezrimmelefrancis\\Proyecto\\iriClasesGYM.csv"
 #define fileClientes "C:\\Users\\Facu\\OneDrive\\Documentos\\UF\\IRI\\2023 2do cuatri\\QT\\entrega-final-tp-2023-g21_mendezrimmelefrancis\\Proyecto\\iriClientesGYM.csv"

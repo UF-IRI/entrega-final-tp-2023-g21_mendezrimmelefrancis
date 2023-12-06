@@ -4,26 +4,26 @@
 TEST_CASE("Test Inscripcion correcto")
 {
     time_t hoy=time(0);
-    asistencias inscripcion={25,1,{{12,hoy}}}; //existe
+    asistencias inscripcion={25,1,{{12,hoy}}}; //parametros de reserva correctos
 
     int tamanio=0;
 
     bool inscripto=Inscripciones(inscripcion,tamanio);
 
-    REQUIRE(inscripto == true);
+    REQUIRE(inscripto == true); //debe inscribir con normalidad
 }
 
 TEST_CASE("Test Inscripcion incorrecto")
 {
 
     time_t hoy=time(0);
-    asistencias inscripcion={-45,1,{{12,hoy}}}; //existe
+    asistencias inscripcion={-45,1,{{12,hoy}}}; //parametro idcliente incorrecto
 
     int tamanio=0;
 
     bool inscripto=Inscripciones(inscripcion,tamanio);
 
-    REQUIRE(inscripto == false);
+    REQUIRE(inscripto == false); // no debe inscribir
 }
 
 TEST_CASE("Test ExisteInscripcionCliente true")
