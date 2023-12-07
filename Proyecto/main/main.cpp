@@ -91,11 +91,11 @@ int main(){
                     Impasistencias(tamltasistencias);
                     break;
                 case 2:
-                    for(int i=0;i<100;i++){
+
                         inscripto=Inscripciones(NuevaInscripcionRandom(),tamltasistencias);
                         tamltasistencias=TamanioArchAsistencias();
 
-                    }
+
 
                     system("pause");
                     break;
